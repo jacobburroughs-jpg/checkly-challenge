@@ -1,5 +1,5 @@
-import { CheckGroupV2 } from 'checkly/constructs'
 import { raccoonEmail } from '../alerts.check'
+import { CheckGroupV2, AlertEscalationBuilder } from 'checkly/constructs'
 
 // Group 1: the customer's Playwright tests.
 // Any spec file in this folder (or a subfolder) whose name matches a glob below
@@ -11,4 +11,5 @@ export const playwrightGroup = new CheckGroupV2('playwright-group', {
   browserChecks: { testMatch: '**/*.browser.spec.ts' },     // your glob
   multiStepChecks: { testMatch: '**/*.multistep.spec.ts' }, // your glob
   alertChannels: [raccoonEmail],
+  alertEscalationPolicy: AlertEscalationBuilder.runBasedEscalation(1),
 })

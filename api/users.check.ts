@@ -12,4 +12,4 @@ export const apiGroup = new CheckGroupV2('user-api-group', {
 })
 
 // users.json looks like { "users": [ ... ] }, so pass the inner list.
-createUserApiChecks(data.users, apiGroup)
+createUserApiChecks(data.users, apiGroup, 'user')

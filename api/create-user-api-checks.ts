@@ -5,10 +5,10 @@ import { ApiCheck, AssertionBuilder, CheckGroupV2 } from 'checkly/constructs'
 
 export type User = { id: number; name: string; profile_url: string }
 
-export function createUserApiChecks(users: User[], group: CheckGroupV2) {
+export function createUserApiChecks(users: User[], group: CheckGroupV2, prefix: string) {
   for (const user of users) {
     new ApiCheck(
-      `user-${user.id}`,
+      `${prefix}-${user.id}`,
       {
         name: `Get user ${user.name}`,
         group,

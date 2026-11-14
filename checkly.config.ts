@@ -6,12 +6,10 @@ import { Frequency } from 'checkly/constructs'
 export default defineConfig({
   projectName: 'Checkly Challenge',
   logicalId: 'checkly-challenge',
-  // TODO: once the repo is on GitHub, add repoUrl: 'https://github.com/jacobburroughs-jpg/<repo>'
+  repoUrl: 'https://github.com/jacobburroughs-jpg/checkly-challenge',
   checks: {
     frequency: Frequency.EVERY_10M,
     locations: ['us-east-1', 'eu-west-1'],
-    // Which files contain construct code (groups, ApiChecks, alert channels).
-    // Spec files are NOT listed here. The groups pick those up with their own testMatch.
     checkMatch: '**/*.check.ts',
   },
   cli: {
